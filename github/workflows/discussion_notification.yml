@@ -1,6 +1,7 @@
 name: Discussion Notification
 
 on:
+  workflow_dispatch:
   discussion:
     types: [created]
 
