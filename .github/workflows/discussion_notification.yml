@@ -18,6 +18,7 @@ jobs:
 
     - name: Notify associates
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        EMAIL_NO_REPLY_PASSWORD: ${{ secrets.EMAIL_NO_REPLY_PASSWORD }}
-      run: apyb-bot github:new-discussion-notification --id ${{ github.event.discussion.id }} --send-to noreply@rougeth.com
+        APYB_BOT_GITHUB_TOKEN: ${{ secrets.APYB_BOT_GITHUB_TOKEN }}
+        APYB_BOT_NO_REPLY_PASSWORD: ${{ secrets.APYB_BOT_NO_REPLY_PASSWORD }}
+        APYB_BOT_SEND_TO: ${{ secrets.APYB_BOT_SEND_TO }}
+      run: apyb-bot github:new-discussion-notification --id ${{ github.event.discussion.id }}
