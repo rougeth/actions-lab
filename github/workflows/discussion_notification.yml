@@ -1,0 +1,22 @@
+name: Discussion Notification
+
+on:
+  discussion:
+    types: [created]
+
+jobs:
+  notify_associates:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install apyb-bot package
+      run: pip install git+https://github.com/apyb/apyb-bot.git
+
+    - name: Notify associates
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        EMAIL_NO_REPLY_PASSWORD: ${{ secrets.EMAIL_NO_REPLY_PASSWORD }}
+      run: apyb-bot github:new-discussion-notification --id ${{ github.event.discussion.id }} --send-to noreply@rougeth.com
