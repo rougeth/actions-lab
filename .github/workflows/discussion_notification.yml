@@ -26,4 +26,6 @@ jobs:
         APYB_BOT_GITHUB_TOKEN: ${{ secrets.APYB_BOT_GITHUB_TOKEN }}
         APYB_BOT_NO_REPLY_PASSWORD: ${{ secrets.APYB_BOT_NO_REPLY_PASSWORD }}
         APYB_BOT_SEND_TO: ${{ secrets.APYB_BOT_SEND_TO }}
+        APYB_GITHUB_ORG: rougeth
+        APYB_GITHUB_COMMUNITY_REPO: actions-lab
       run: apyb-bot github:new-discussion-notification --id ${{ github.event.discussion.number }}
